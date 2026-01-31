@@ -1,0 +1,45 @@
+name: Code Check
+
+on:
+  push:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test-services:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Start Microservices
+        run: docker-compose up -d
+
+      - name: Verify Running Services
+        run: |
+          echo "Allowing containers 10 seconds to initialize..."
+          sleep 10
+          
+          # Get states of all services
+          STATES=$(docker-compose ps --format json | jq -r '.[].State')
+          echo "Current states: $STATES"
+
+          # Check if any service is NOT 'running'
+          FAILED_SERVICES=$(docker-compose ps --format json | jq -r 'select(.State != "running") | .Service')
+
+          if [ -z "$FAILED_SERVICES" ]; then
+            echo "✅ All services are running successfully."
+            docker-compose ps
+          else
+            echo "❌ The following services are not running:"
+            echo "$FAILED_SERVICES"
+            docker-compose ps
+            echo "--- Container Logs ---"
+            docker-compose logs
+            exit 1
+          fi
+
+      - name: Shutdown Services
+        if: always()
+        run: docker-compose down

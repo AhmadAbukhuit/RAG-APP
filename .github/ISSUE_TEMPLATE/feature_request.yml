@@ -1,0 +1,43 @@
+name: 💡 Feature Request
+description: Suggest a new idea or improvement for Envision Website.
+title: "[Feature] "
+labels: [enhancement]
+assignees: [jason-m-h]
+
+body:
+  - type: textarea
+    id: feature
+    attributes:
+      label: Describe the feature
+      description: What should be added or improved?
+      placeholder: "Add new ...."
+    validations:
+      required: true
+
+  - type: textarea
+    id: usecase
+    attributes:
+      label: Use case / User story
+      description: Why is this feature important? How will it be used?
+      placeholder: "For ...."
+    validations:
+      required: true
+
+  - type: input
+    id: related
+    attributes:
+      label: Related Issues (if any)
+      placeholder: "#123"
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Affected Component
+      options:
+        - Frontend
+        - Backend API
+        - AI Service
+        - Reporting
+        - Storage
+        - DevOps/Infra
+        - Other

@@ -1,0 +1,72 @@
+name: 🐞 Bug Report
+description: Report a bug or unexpected behavior in the application.
+title: "[Bug] "
+labels: [bug]
+assignees: []
+
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+      placeholder: "When I try to upload an image, the app crashes with error XYZ..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: How can we reproduce the bug?
+      placeholder: "1. Go to Dashboard\n2. Click on Upload\n3. Select image\n4. See error"
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-result
+    attributes:
+      label: Expected Result
+      description: What should have happened in this scenario?
+      placeholder: "The image should upload successfully and appear in my gallery."
+
+  - type: textarea
+    id: actual-result
+    attributes:
+      label: Actual Result
+      description: What actually happened instead?
+      placeholder: "The app crashes with a 'Memory Overflow' error."
+
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Describe the environment where the issue occurs.
+      placeholder: "Browser: Chrome 123 / OS: Ubuntu 22.04 / Docker: v24.0.2"
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant Logs or Screenshots
+      description: Paste any relevant logs or attach screenshots to help debug.
+      placeholder: "Include terminal logs, browser console errors, etc."
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - Low
+        - Medium
+        - High
+        - Critical
+
+  - type: dropdown
+    id: assignee
+    attributes:
+      label: Assign to
+      description: Select a team member to assign this bug to.
+      options:
+        - Eng.Ahmad Abukhuit
+        - Jumana16702
+        - Zaid-Nael-Ahmad

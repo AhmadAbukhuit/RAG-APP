@@ -1,0 +1,60 @@
+name: 🔧 Enhancement Request
+description: Suggest an improvement to existing functionality in the Envision Website
+title: "[Enhancement]: "
+labels: [enhancement]
+assignees: [jason-m-h]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This template is for requesting **improvements to existing features or services**.
+        If you're suggesting a completely new feature, please use the \"Feature Request\" template instead.
+
+  - type: input
+    id: related_component
+    attributes:
+      label: 🧩 Component Affected
+      description: Specify the component this improvement relates to (e.g., AI Output UI, Upload API, Reporting PDF).
+      placeholder: "e.g., Frontend - Upload Interface"
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_behavior
+    attributes:
+      label: 🔍 Current Behavior
+      description: Briefly describe how the functionality currently works.
+      placeholder: "e.g., Users can only upload one image at a time using the upload form."
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggested_improvement
+    attributes:
+      label: 💡 Suggested Improvement
+      description: What improvement would you like to see? Be as specific as possible.
+      placeholder: |
+        e.g.,
+        - Allow drag-and-drop image upload.
+        - Add image size validation to avoid oversized uploads.
+    validations:
+      required: true
+
+  - type: textarea
+    id: benefits
+    attributes:
+      label: 🎯 Benefit or Impact
+      description: What benefits will this improvement bring to users or the system?
+      placeholder: "e.g., Saves time for users uploading large image sets."
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional_info
+    attributes:
+      label: 📎 Additional Context
+      description: Add mockups, screenshots, error logs, or references to related issues.
+      placeholder: "Link to related issues, sketches, or screenshots."
+    validations:
+      required: false
